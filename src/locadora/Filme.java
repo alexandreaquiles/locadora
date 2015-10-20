@@ -1,5 +1,8 @@
 package locadora;
 
+import locadora.preco.PrecoInfantil;
+import locadora.preco.PrecoLancamento;
+import locadora.preco.PrecoNormal;
 
 public class Filme {
 
@@ -23,37 +26,20 @@ public class Filme {
 		switch (getCategoria()) {
 	
 		case NORMAL:
-			return precoNormal(diasDeAluguel);
-	
+			PrecoNormal precoNormal = new PrecoNormal();
+			return precoNormal.precoNormal(diasDeAluguel);
+
 		case LANCAMENTO:
-			return precoLancamento(diasDeAluguel);
+			PrecoLancamento precoLancamento = new PrecoLancamento();
+			return precoLancamento.precoLancamento(diasDeAluguel);
 	
 		case INFANTIL:
-			return precoInfantil(diasDeAluguel);
+			PrecoInfantil precoInfantil = new PrecoInfantil();
+			return precoInfantil.precoInfantil(diasDeAluguel);
 			
 		default:
 			throw new RuntimeException("Categoria Inválida");
 		}
-	}
-
-	private double precoNormal(int diasDeAluguel) {
-		double valor = 2.0;
-		if(diasDeAluguel > 2) {
-			valor += (diasDeAluguel - 2) * 1.5;
-		}
-		return valor;
-	}
-
-	private double precoLancamento(int diasDeAluguel) {
-		return diasDeAluguel * 3;
-	}
-
-	private double precoInfantil(int diasDeAluguel) {
-		double valor = 1.0;
-		if(diasDeAluguel > 3) {
-			valor += (diasDeAluguel - 3) * 1.5;
-		}
-		return valor;
 	}
 
 }
