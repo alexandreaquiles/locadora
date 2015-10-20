@@ -6,10 +6,9 @@ public class GeradorDeRecibo {
 		double totalGeral = 0.0;
 		String recibo = "Recibo para " + cliente.getNome() + ":\n";
 		for (Locacao locacao : cliente.getLocacoes()) {
-			double totalParcial = 0.0;
 			Filme filme = locacao.getFilme();
 			int diasDeAluguel = locacao.getDiasDeAluguel();
-			totalParcial = calculaValorLocacao(filme, diasDeAluguel);
+			double totalParcial = calculaValorLocacao(filme, diasDeAluguel);
 			recibo += locacao.getFilme().getTitulo() + "\t" + String.valueOf(totalParcial) + "\n";
 			totalGeral += totalParcial;
 		}
