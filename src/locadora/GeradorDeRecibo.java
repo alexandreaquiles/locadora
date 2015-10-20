@@ -17,28 +17,28 @@ public class GeradorDeRecibo {
 		return recibo;
 	}
 
-	private double calculaValorLocacao(double totalParcial, Filme filme, int diasDeAluguel) {
+	private double calculaValorLocacao(double valor, Filme filme, int diasDeAluguel) {
 		switch (filme.getCategoria()) {
 
 		case NORMAL:
-			totalParcial += 2.0;
+			valor += 2.0;
 			if(diasDeAluguel > 2) {
-				totalParcial += (diasDeAluguel - 2) * 1.5;
+				valor += (diasDeAluguel - 2) * 1.5;
 			}
 			break;
 
 		case LANCAMENTO:
-			totalParcial += diasDeAluguel * 3;
+			valor += diasDeAluguel * 3;
 			break;
 
 		case INFANTIL:
-			totalParcial += 1.0;
+			valor += 1.0;
 			if(diasDeAluguel > 3) {
-				totalParcial += (diasDeAluguel - 3) * 1.5;
+				valor += (diasDeAluguel - 3) * 1.5;
 			}
 			break;
 		}
-		return totalParcial;
+		return valor;
 	}
 
 }
