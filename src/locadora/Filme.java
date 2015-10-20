@@ -27,15 +27,15 @@ public class Filme {
 	
 		case NORMAL:
 			PrecoNormal precoNormal = new PrecoNormal();
-			return precoNormal.precoNormal(diasDeAluguel);
+			return precoNormal.calcula(diasDeAluguel);
 
 		case LANCAMENTO:
 			PrecoLancamento precoLancamento = new PrecoLancamento();
-			return precoLancamento.precoLancamento(diasDeAluguel);
+			return precoLancamento.calcula(diasDeAluguel);
 	
 		case INFANTIL:
 			PrecoInfantil precoInfantil = new PrecoInfantil();
-			return precoInfantil.precoInfantil(diasDeAluguel);
+			return precoInfantil.calcula(diasDeAluguel);
 			
 		default:
 			throw new RuntimeException("Categoria Inválida");
