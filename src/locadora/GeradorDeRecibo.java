@@ -17,7 +17,9 @@ public class GeradorDeRecibo {
 		return recibo;
 	}
 
-	private double calculaValorLocacao(double valor, Filme filme, int diasDeAluguel) {
+	private double calculaValorLocacao(double valorP, Filme filme, int diasDeAluguel) {
+		double valor = 0.0;
+
 		switch (filme.getCategoria()) {
 
 		case NORMAL:
