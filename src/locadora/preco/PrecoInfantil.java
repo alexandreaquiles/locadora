@@ -1,6 +1,6 @@
 package locadora.preco;
 
-public class PrecoInfantil {
+public class PrecoInfantil implements Preco {
 
 	public double calcula(int diasDeAluguel) {
 		double valor = 1.0;

@@ -1,7 +1,8 @@
 package locadora.preco;
 
-public class PrecoNormal {
+public class PrecoNormal implements Preco {
 
+	@Override
 	public double calcula(int diasDeAluguel) {
 		double valor = 2.0;
 		if(diasDeAluguel > 2) {
