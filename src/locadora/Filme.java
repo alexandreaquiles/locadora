@@ -24,23 +24,26 @@ public class Filme {
 		this.categoria = categoria;
 	}
 	public double calculaValorLocacao(int diasDeAluguel) {
+		Preco preco = null;
 		switch (getCategoria()) {
 	
 		case NORMAL:
-			Preco precoNormal = new PrecoNormal();
-			return precoNormal.calcula(diasDeAluguel);
-
+			preco = new PrecoNormal();
+			break;
+			
 		case LANCAMENTO:
-			Preco precoLancamento = new PrecoLancamento();
-			return precoLancamento.calcula(diasDeAluguel);
-	
+			preco = new PrecoLancamento();
+			break;
+			
 		case INFANTIL:
-			Preco precoInfantil = new PrecoInfantil();
-			return precoInfantil.calcula(diasDeAluguel);
+			preco = new PrecoInfantil();
+			break;
 			
 		default:
 			throw new RuntimeException("Categoria Inválida");
+
 		}
+		return preco.calcula(diasDeAluguel);
 	}
 
 }
