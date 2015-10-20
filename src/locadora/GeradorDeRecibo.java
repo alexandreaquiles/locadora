@@ -9,7 +9,7 @@ public class GeradorDeRecibo {
 			double totalParcial = 0.0;
 			Filme filme = locacao.getFilme();
 			int diasDeAluguel = locacao.getDiasDeAluguel();
-			totalParcial = calculaValorLocacao(totalParcial, filme, diasDeAluguel);
+			totalParcial = calculaValorLocacao(filme, diasDeAluguel);
 			recibo += locacao.getFilme().getTitulo() + "\t" + String.valueOf(totalParcial) + "\n";
 			totalGeral += totalParcial;
 		}
@@ -17,7 +17,7 @@ public class GeradorDeRecibo {
 		return recibo;
 	}
 
-	private double calculaValorLocacao(double valorP, Filme filme, int diasDeAluguel) {
+	private double calculaValorLocacao(Filme filme, int diasDeAluguel) {
 		double valor = 0.0;
 
 		switch (filme.getCategoria()) {
