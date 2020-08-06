@@ -1,7 +1,7 @@
 package locadora;
 
 public enum Categoria {
-	NORMAL,
-	LANCAMENTO,
-	INFANTIL
+    NORMAL,
+    LANCAMENTO,
+    INFANTIL
 }
