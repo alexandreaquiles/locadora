@@ -9,19 +9,33 @@ public class LocacaoBuilder {
 
     private LocacaoBuilder(Locacao locacao) {
         this.locacao = locacao;
-        this.locacao.setDiasDeAluguel(3);
     }
 
     public static LocacaoBuilder umaLocacao() {
         return new LocacaoBuilder(new Locacao());
     }
 
-    public LocacaoBuilder curta(int dias) {
+    public LocacaoBuilder comDuracaoMinima() {
+        locacao.setDiasDeAluguel(1);
+        return this;
+    }
+
+    public LocacaoBuilder comDuracaoEmDias(int dias) {
         locacao.setDiasDeAluguel(dias);
         return this;
     }
 
-    public LocacaoBuilder longa(int dias) {
+    public LocacaoBuilder comDuracaoMenorQueOValorLimite(int dias) {
+        locacao.setDiasDeAluguel(dias);
+        return this;
+    }
+
+    public LocacaoBuilder comDuracaoNoValorLimite(int dias) {
+        locacao.setDiasDeAluguel(dias);
+        return this;
+    }
+
+    public LocacaoBuilder comDuracaoMaiorQueOValorLimite(int dias) {
         locacao.setDiasDeAluguel(dias);
         return this;
     }
@@ -32,6 +46,7 @@ public class LocacaoBuilder {
     }
 
     public Locacao build() {
+        assert locacao.getDiasDeAluguel() > 0;
         locacao.setFilme(filme.build());
         return this.locacao;
     }
