@@ -21,4 +21,16 @@ public class Locacao {
         this.diasDeAluguel = diasDeAluguel;
     }
 
+    public Categoria getCategoria(){
+        return getFilme().getCategoria();
+    }
+
+    public String getTitulo(){
+        return getFilme().getTitulo();
+    }
+
+    public double valorTotalDaLocacao(){
+        return getCategoria().calculaValorTotal(this);
+    }
+
 }
