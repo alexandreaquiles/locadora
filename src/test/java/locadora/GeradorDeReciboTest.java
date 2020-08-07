@@ -160,4 +160,24 @@ public class GeradorDeReciboTest {
         Assertions.assertEquals("Recibo para Fulano:\nGalinha Pintadinha\t4.0\nTotal: 4.0\n", recibo);
     }
 
+    @Test
+    @DisplayName("Mais de uma locação deve usar regras apropriadas")
+    public void multiplasLocacoes() {
+        Cliente cliente = umCliente().chamado("Fulano")
+                .com(umaLocacao().comDuracaoMinima()
+                        .de(umFilme().chamado("De Volta para o Futuro")))
+                .com(umaLocacao().comDuracaoMinima()
+                        .de(umFilme().lancamento().chamado("Rocky XV")))
+                .build();
+
+        GeradorDeRecibo geradorDeRecibo = new GeradorDeRecibo();
+
+        String recibo = geradorDeRecibo.gera(cliente);
+
+        Assertions.assertEquals("Recibo para Fulano:" +
+                "\nDe Volta para o Futuro\t2.0" +
+                "\nRocky XV\t3.0" +
+                "\nTotal: 5.0\n", recibo);
+    }
+
 }
