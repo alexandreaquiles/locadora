@@ -21,4 +21,8 @@ public class Locacao {
         this.diasDeAluguel = diasDeAluguel;
     }
 
+    public double calculaPreco() {
+        return filme.calculaPreco(diasDeAluguel);
+    }
+
 }

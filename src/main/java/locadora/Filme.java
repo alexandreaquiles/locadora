@@ -22,4 +22,8 @@ public class Filme {
         this.categoria = categoria;
     }
 
+    public double calculaPreco(int diasDeAluguel) {
+        return categoria.calcula(diasDeAluguel);
+    }
+
 }
