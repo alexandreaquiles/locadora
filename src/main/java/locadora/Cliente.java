@@ -24,4 +24,8 @@ public class Cliente {
         this.locacoes.add(locacao);
     }
 
+    public double getTotalGeralLocacoes() {
+        return this.locacoes.stream().mapToDouble(Locacao::getCustoFixo).sum();
+    }
+
 }
