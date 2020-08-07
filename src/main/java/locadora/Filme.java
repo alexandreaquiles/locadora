@@ -1,6 +1,11 @@
 package locadora;
 
 
+import locadora.precos.Preco;
+import locadora.precos.PrecoInfantil;
+import locadora.precos.PrecoLancamento;
+import locadora.precos.PrecoNormal;
+
 public class Filme {
 
     private String titulo;
@@ -20,6 +25,10 @@ public class Filme {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    double calculaValorLocacao(int diasDeAluguel) {
+        return categoria.getPreco().calcula(diasDeAluguel);
     }
 
 }
